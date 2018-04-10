@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.repository.jpa;
 
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.model.Meal;
@@ -20,29 +21,53 @@ public class JpaMealRepositoryImpl implements MealRepository {
     private EntityManager entityManager;
 
     @Override
+    @Transactional
     public Meal save(Meal meal, int userId) {
+        User ref = entityManager.getReference(User.class, userId);
+        if (meal.isNew()) {
+            meal.setUser(ref);
+            entityManager.persist(meal);
+            return meal;
+        } else {
+            meal.setUser(ref);
+            return entityManager.merge(meal);
+        }
 
-        return null;
     }
 
     @Override
+    @Transactional
     public boolean delete(int id, int userId) {
-        return false;
+        return entityManager.createNamedQuery(Meal.DELETE)
+                .setParameter("id", id)
+                .setParameter("userID", userId)
+                .executeUpdate() != 0;
     }
 
     @Override
     public Meal get(int id, int userId) {
-        return entityManager.find(Meal.class, id);
+        List<Meal> meals = entityManager.createNamedQuery(Meal.GET, Meal.class)
+                .setParameter("id", id)
+                .setParameter("userID", userId)
+                .getResultList();
+        return DataAccessUtils.singleResult(meals);
     }
 
     @Override
     public List<Meal> getAll(int userId) {
 
-        return null;
+        return entityManager.createNamedQuery(Meal.GET_ALL, Meal.class)
+                .setParameter("userID", userId)
+                .getResultList();
     }
 
     @Override
     public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
-        return null;
+
+        return entityManager.createNamedQuery(Meal.GET_BETWEEN, Meal.class)
+                .setParameter("userID", userId)
+                .setParameter("startDate", startDate)
+                .setParameter("endDate", endDate)
+                .getResultList();
     }
 }

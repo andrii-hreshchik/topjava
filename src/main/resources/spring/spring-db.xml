@@ -19,7 +19,7 @@
     </jdbc:initialize-database>
 
     <!-- Choose profile from (hsqldb, postgres) and (jdbc,datajpa,jpa) -->
-    <!--huilalala-->
+    <!--huilalalaland-->
     <!--huilala-->
     <beans profile="hsqldb">
         <context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/>

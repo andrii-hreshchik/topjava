@@ -3,8 +3,8 @@
     <con:settings/>
     <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" id="eebe6f3c-c045-444a-ae8f-c0f4bbb345b5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <con:settings/>
-        <con:definitionCache/>
-        <con:endpoints>
+        
+        <con:definitionCache type="TEXT" rootPart=""/><con:endpoints>
             <con:endpoint>http://localhost:8080</con:endpoint>
         </con:endpoints>
         <con:resource name="" path="/topjava/rest/admin/users" id="6da03be8-b9dc-43d8-a333-3253fa8d4dad">
@@ -15,7 +15,7 @@
                 <con:parameters/>
                 <con:representation type="FAULT">
                     <con:mediaType>text/html;charset=utf-8</con:mediaType>
-                    <con:status>500 401</con:status>
+                    <con:status>500 401 404</con:status>
                     <con:params/>
                     <con:element>html</con:element>
                 </con:representation>
@@ -106,7 +106,7 @@
                 <con:parameters/>
                 <con:representation type="FAULT">
                     <con:mediaType>text/html;charset=utf-8</con:mediaType>
-                    <con:status>500</con:status>
+                    <con:status>500 404</con:status>
                     <con:params/>
                     <con:element>html</con:element>
                 </con:representation>
@@ -207,7 +207,7 @@
                 <con:parameters/>
                 <con:representation type="FAULT">
                     <con:mediaType>text/html;charset=utf-8</con:mediaType>
-                    <con:status>500</con:status>
+                    <con:status>500 404</con:status>
                     <con:params/>
                     <con:element>html</con:element>
                 </con:representation>
@@ -223,7 +223,7 @@
                     <con:params/>
                     <con:element xmlns:prof="http://localhost/topjava/rest/profile">prof:Response</con:element>
                 </con:representation>
-                <con:request name="Get" mediaType="application/json" id="284adf4f-eb7e-44eb-83a9-b038a370efc4">
+                <con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Get" mediaType="application/json" id="284adf4f-eb7e-44eb-83a9-b038a370efc4">
                     <con:settings>
                         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                     </con:settings>

@@ -61,7 +61,7 @@ function successNoty(text) {
     new Noty({
         text: "<span class='fa fa-lg fa-check'></span> &nbsp;" + text,
         type: 'success',
-        layout: "bottomRight",
+        layout: "bottomLeft",
         timeout: 1000
     }).show();
 }

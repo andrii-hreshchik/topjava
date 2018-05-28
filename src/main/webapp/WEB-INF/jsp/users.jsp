@@ -54,6 +54,7 @@
                 <h4 class="modal-title"><spring:message code="user.add"/></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
+
             <div class="modal-body">
                 <form id="detailsForm">
                     <input type="hidden" id="id" name="id">
@@ -77,6 +78,8 @@
                     </div>
                 </form>
             </div>
+
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     <span class="fa fa-close" aria-hidden="true"></span>

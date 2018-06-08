@@ -55,7 +55,7 @@ public class AdminAjaxController extends AbstractUserController {
             super.update(userTo, userTo.getId());
         }
         return new ResponseEntity<>(HttpStatus.OK);
-    }
+}
 
     @Override
     @PostMapping(value = "/{id}")

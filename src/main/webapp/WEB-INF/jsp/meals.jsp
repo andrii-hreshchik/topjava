@@ -12,7 +12,6 @@
 <div class="jumbotron pt-4">
     <div class="container">
         <h3><spring:message code="meal.title"/></h3>
-
         <%--https://getbootstrap.com/docs/4.0/components/card/--%>
         <div class="row">
             <div class="col-7">
